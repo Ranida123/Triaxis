@@ -1,0 +1,172 @@
+/* menu.css */
+
+/* DROPDOWN MENU */
+.navbar {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #002d88;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 200;
+  padding: 30px 20px;
+}
+
+.navbar.active {
+  transform: translateX(0);
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 20px 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}
+
+/* POP-IN EFFECT */
+.card {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.6s forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* SUBMENU TO THE RIGHT */
+.navbar ul li {
+  position: relative;
+  margin: 20px 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}
+
+/* Submenu hidden by default */
+.navbar ul li ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* moves submenu to the right */
+  background: rgba(0, 45, 136, 0.9); /* semi-transparent blue */
+  padding: 15px;
+  border-radius: 6px;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li {
+  margin: 10px 0;
+}
+
+.navbar ul li ul li a {
+  font-size: 18px;
+  color: #eee;
+}
+
+.navbar ul li ul li a:hover {
+  color: #d4af37;
+}
+.navbar ul li ul { display: none; position: absolute; top: 100%; /* ✅ drops below */ left: 0; /* ✅ aligns under parent */ }
+.navbar {
+  display: none; /* hidden by default on mobile */
+}
+
+.navbar.active {
+  display: block; /* shows when toggled */
+}
+
+/* Optional: make it slide in */
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 80px; /* below header */
+    left: 0;
+    width: 100%;
+    background: rgba(0,45,136,0.95);
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+/* Base hidden state */
+.navbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  background: rgba(0,45,136,0.95);
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: bottom right; /* ✅ animate from bottom right */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+/* Active state */
+.navbar.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Menu list styling */
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}

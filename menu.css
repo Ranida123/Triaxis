@@ -1,0 +1,404 @@
+/* menu.css */
+
+/* DROPDOWN MENU */
+.navbar {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: #002d88;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 200;
+  padding: 30px 20px;
+}
+
+.navbar.active {
+  transform: translateX(0);
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 20px 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}
+
+/* POP-IN EFFECT */
+.card {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.6s forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* SUBMENU TO THE RIGHT */
+.navbar ul li {
+  position: relative;
+  margin: 20px 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}
+
+/* Submenu hidden by default */
+.navbar ul li ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; /* moves submenu to the right */
+  background: rgba(0, 45, 136, 0.9); /* semi-transparent blue */
+  padding: 15px;
+  border-radius: 6px;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li {
+  margin: 10px 0;
+}
+
+.navbar ul li ul li a {
+  font-size: 18px;
+  color: #eee;
+}
+
+.navbar ul li ul li a:hover {
+  color: #d4af37;
+}
+.navbar ul li ul { display: none; position: absolute; top: 100%; /* ✅ drops below */ left: 0; /* ✅ aligns under parent */ }
+.navbar {
+  display: none; /* hidden by default on mobile */
+}
+
+.navbar.active {
+  display: block; /* shows when toggled */
+}
+
+/* Optional: make it slide in */
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 80px; /* below header */
+    left: 0;
+    width: 100%;
+    background: rgba(0,45,136,0.95);
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+/* Base hidden state */
+.navbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  background: rgba(0,45,136,0.95);
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: bottom right; /* ✅ animate from bottom right */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 999;
+  padding: 20px;
+}
+
+/* Active state */
+.navbar.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Menu list styling */
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #d4af37;
+}
+.why-choose {
+  padding: 100px 60px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.why-choose h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #002d88;
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.choose-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  font-size: 20px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.choose-item i {
+  color: #d4af37;
+  margin-right: 10px;
+}
+
+.choose-item:hover {
+  transform: translateY(-6px);
+}
+.contact-section {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  text-align: center;
+  width: 180px;
+}
+
+.contact-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.contact-card p {
+  margin: 5px 0 0;
+  color: #555;
+}
+
+.why-choose h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #d4af37;
+}
+
+.intro-text {
+  font-size: 20px;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.choose-item {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: left;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.choose-item i {
+  color: #d4af37;
+  margin-right: 10px;
+}
+
+.choose-item:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.2);
+}
+
+.btn {
+  display: inline-block;
+  background: #d4af37;
+  color: #002d88;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #002d88;
+}
+
+.why-choose h1 {
+  font-size: 48px;
+  margin-bottom: 50px;
+  color: #002d88;
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.choose-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.choose-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.choose-item i {
+  font-size: 32px;
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.choose-item h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #002d88;
+}
+
+.choose-item p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+.why-choose-zoom h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #d4af37; /* gold accent */
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 80%;
+}
+
+.choose-item {
+  background: rgba(0,0,0,0.6); /* semi-transparent overlay */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+
+
+
+
+.why-choose-full {
+  min-height: 100vh; /* fills the entire viewport height */
+  width: 100%;       /* full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff; /* text white */
+  background: url('whychoosebg.jpg') center/cover no-repeat; /* ✅ replace with your image */
+}
+
+/* Heading */
+.why-choose-full h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #d4af37; /* gold accent */
+}
+
+/* Grid layout */
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.choose-item {
+  background: rgba(255, 255, 255, 0.85); /* darker, more opaque */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* subtle shadow for depth */
+}
